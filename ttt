@@ -1,0 +1,15 @@
+STREAM_ARN='粘贴完整的Video stream ARN'
+
+LIST_ENDPOINT=$(aws kinesisvideo get-data-endpoint \
+  --region us-east-1 \
+  --stream-arn "$STREAM_ARN" \
+  --api-name LIST_FRAGMENTS \
+  --query DataEndpoint \
+  --output text)
+
+aws kinesis-video-archived-media list-fragments \
+  --region us-east-1 \
+  --endpoint-url "$LIST_ENDPOINT" \
+  --stream-arn "$STREAM_ARN" \
+  --max-results 5 \
+  --no-paginate
