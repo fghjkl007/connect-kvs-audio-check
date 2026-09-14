@@ -1,0 +1,7 @@
+*.mkv
+*.wav
+*.pcm
+fragments.json
+fragment-ids.json
+.env
+.aws/
